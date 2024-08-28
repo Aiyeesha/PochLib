@@ -1,4 +1,46 @@
 import { addBook } from "./search.js";
+
+// Crée un élément div pour le container des livres
+const myBooksElement = document.getElementById('myBooks');
+const titleContainerElement = document.createElement('div');
+titleContainerElement.classList.add('title-container');
+const logoImage = document.createElement('img');
+logoImage.src = "images/logo.png";
+const mainTitle = document.querySelector('.title');
+// Ajoute le logo et le titre principal dans le container des livres
+myBooksElement.prepend(titleContainerElement);
+titleContainerElement.prepend(logoImage);
+titleContainerElement.append(mainTitle);
+
+// Ajoute la classe 'sub-title' à tous les sous-titres h2
+const subTitles = document.querySelectorAll('h2');
+for (const subTitle of subTitles) {
+  subTitle.classList.add('sub-title');
+}
+
+// Crée un container pour la barre de recherche
+const searchContainerElement = document.createElement('div');
+searchContainerElement.classList.add('js-search-container');
+const buttonsBoxElement = document.createElement('div');
+buttonsBoxElement.classList.add('buttons-box');
+const addButton = document.createElement('button');
+addButton.classList.add('button--green', 'js-add-button');
+addButton.textContent = 'Ajouter un livre';
+// Insère le container de recherche et le bouton d'ajout avant la barre de séparation hr
+myBooksElement.insertBefore(searchContainerElement, document.querySelector('hr'));
+searchContainerElement.append(buttonsBoxElement);
+buttonsBoxElement.append(addButton);
+
+// Crée une section pour les résultats
+const contentElement = document.getElementById('content');
+const resultSectionElement = document.createElement('div');
+resultSectionElement.classList.add('js-result-section');
+myBooksElement.insertBefore(resultSectionElement, contentElement);
+
+const resultBoxGridElement = document.createElement('div');
+resultBoxGridElement.classList.add('result-box-grid', 'js-myBooklist-box');
+contentElement.append(resultBoxGridElement);
+
 // Call the function to add a book
 addBook();
 

@@ -57,6 +57,7 @@ function displayBookList() {
       document.getElementById(item.dataset.bookId).innerHTML = '<i class="fa-regular fa-bookmark"></i>';
       displayBookList();
       console.log(bookList);
+      saveToStorage();
     });
   });
 };
@@ -173,7 +174,7 @@ async function searchAPI() {
         const matchingBook = bookList.find(book => book.bookId === item.dataset.bookId)
 
         if (matchingBook) {
-          alert('Existe déjà');
+          alert('Vous ne pouvez ajouter deux fois le même livre');
         } else {
         bookList.push({
           bookTitle: item.dataset.bookTitle,
@@ -185,6 +186,7 @@ async function searchAPI() {
         item.innerHTML = `<i class="fa-solid fa-bookmark"></i>`
         displayBookList();
         console.log(bookList);
+        saveToStorage();
         };
 
       });

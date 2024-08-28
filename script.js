@@ -205,28 +205,32 @@ function launchSearch() {
     if (!titleInput || !authorInput) {
       errorMessage.textContent = "Merci de renseigner un titre et un auteur";
     } else {
-      errorMessage.textContent = "Aucun livre n’a été trouvé";
+      errorMessage.textContent = "";
       searchAPI();
     };
 
   });
 
-  document.body.addEventListener('keyup', (event) => {
+  document.querySelectorAll('input').forEach(input => {
 
-    const titleInput = document.querySelector('.js-title-input').value;
-    const authorInput = document.querySelector('.js-author-input').value;
-    const errorMessage = document.getElementById('error-message');
+    input.addEventListener('keyup', (event) => {
 
-    if (event.key === 'Enter') {
-
-      if (!titleInput || !authorInput) {
-        errorMessage.textContent = "Merci de renseigner un titre et un auteur";
-      } else {
-        errorMessage.textContent = "";
-        searchAPI();
+      const titleInput = document.querySelector('.js-title-input').value;
+      const authorInput = document.querySelector('.js-author-input').value;
+      const errorMessage = document.getElementById('error-message');
+  
+      if (event.key === 'Enter') {
+  
+        if (!titleInput || !authorInput) {
+          errorMessage.textContent = "Merci de renseigner un titre et un auteur";
+        } else {
+          errorMessage.textContent = "Vous ne pouvez ajouter deux fois le même livre";
+          searchAPI();
+        };
       };
-    };
+    });
   });
+  
 };
 
 function truncateText(string, n){

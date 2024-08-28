@@ -224,7 +224,7 @@ function launchSearch() {
         if (!titleInput || !authorInput) {
           errorMessage.textContent = "Merci de renseigner un titre et un auteur";
         } else {
-          errorMessage.textContent = "Vous ne pouvez ajouter deux fois le même livre";
+          errorMessage.textContent = "Aucun livre n’a été trouvé";
           searchAPI();
         };
       };

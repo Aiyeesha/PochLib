@@ -2,6 +2,19 @@ body {
   font-family: 'Roboto', sans-serif;
   margin: 30px;
 }
+/* Marges pour mobile */
+@media all and (max-width: 750px) {
+  body {
+    margin: 15px;
+  }
+}
+
+/* Marges pour tablette */
+@media all and (max-width: 1024px) {
+  body {
+    margin: 20px;
+  }
+}
 
 hr {
   border-top: solid 1px rgba(0,0,0,0.3);
@@ -53,6 +66,14 @@ input {
   margin: 10px 0 20px;
 }
 
+/* Alignement des boutons en colonne pour mobile */
+@media all and (max-width: 750px) {
+  .buttons-box {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .buttons-box {
   margin: 20px 0 30px;
   display: flex;
@@ -67,8 +88,16 @@ input {
   border-radius: 3px;
   color: white;
   cursor: pointer;
+  width: 190px;
   padding: 10px 40px;
   margin: 0px 40px;
+}
+
+/* Ajustement des boutons pour mobile */
+@media all and (max-width: 750px) {
+  button {
+    margin: 5px 0 10px;
+  }
 }
 
 .green-button {
@@ -84,6 +113,20 @@ input {
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
   margin-bottom: 50px;
+}
+
+/* Affichage en colonne unique pour mobile */
+@media all and (max-width: 750px) {
+  .result-box-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Affichage en trois colonnes pour bureau */
+@media all and (min-width: 1024px) {
+  .result-box-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .result-box {
@@ -146,3 +189,16 @@ input {
   text-align: center;
   color: #df5a4b;
 }
+
+  .result-box-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .buttons-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button {
+    margin: 5px 0 10px;
+  }
